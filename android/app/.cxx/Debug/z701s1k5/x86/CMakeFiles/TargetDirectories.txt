@@ -1,0 +1,2 @@
+C:/Users/samue/.vscode/CSC 4330/scavenger_hunt_new/android/app/.cxx/Debug/z701s1k5/x86/CMakeFiles/edit_cache.dir
+C:/Users/samue/.vscode/CSC 4330/scavenger_hunt_new/android/app/.cxx/Debug/z701s1k5/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+C:\Users\samue\.vscode\CSC 4330\scavenger_hunt_new\build\app\intermediates\cxx\Debug\20516r3b\obj\arm64-v8a

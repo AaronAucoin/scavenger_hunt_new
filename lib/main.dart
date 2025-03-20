@@ -84,6 +84,10 @@ class WelcomeScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     // TODO: Navigate to hunt screen
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => const huntScreen()),
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFFB81C), // LSU Gold
