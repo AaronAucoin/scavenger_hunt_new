@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'hunt_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -83,11 +84,10 @@ class WelcomeScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: Navigate to hunt screen
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => const huntScreen()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HuntScreen()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFFB81C), // LSU Gold
