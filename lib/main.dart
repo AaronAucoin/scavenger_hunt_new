@@ -64,7 +64,7 @@ class WelcomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Image.asset(
-                  'assets/LSU_Logo.png',
+                  'assets/lsuLogo2.png',
                   height: 180,
                   width: 270,
                   fit: BoxFit.contain,
@@ -86,7 +86,8 @@ class WelcomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const HuntScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const HuntScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

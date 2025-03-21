@@ -86,7 +86,43 @@ class _CommonsScreenState extends State<CommonsScreen> {
               textAlign: TextAlign.center,
             ),
           ),
-          const Spacer(),
+
+          // This Expanded ensures the image is centered between the texts
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center, // Centers the image
+              children: [
+                Image.asset(
+                  'assets/commons.png',
+                  height: 200,
+                  width: 300,
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    print('Error loading image: $error');
+                    return const Center(
+                      child: Text(
+                        'Logo not found',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            child: Text(
+              'Where do you want to go next?',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(
@@ -152,4 +188,4 @@ class _CommonsScreenState extends State<CommonsScreen> {
       ),
     );
   }
-} 
+}
