@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'hunt_screen.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
-import 'poster_screen.dart';
-import 'right_hallway_screen.dart';
-import 'big_stairs_screen.dart';
+import 'throne_room_screen.dart';
+import 'commons_screen.dart';
 
-class CommonsScreen extends StatefulWidget {
-  const CommonsScreen({super.key});
+class BigStairsScreen extends StatefulWidget {
+  const BigStairsScreen({super.key});
 
   @override
-  State<CommonsScreen> createState() => _CommonsScreenState();
+  State<BigStairsScreen> createState() => _BigStairsScreenState();
 }
 
-class _CommonsScreenState extends State<CommonsScreen> {
+class _BigStairsScreenState extends State<BigStairsScreen> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -42,103 +41,37 @@ class _CommonsScreenState extends State<CommonsScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
-          'Commons',
+          'Big Stairs',
           style: TextStyle(
             color: Color(0xFF461D7C),
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: [
-          PopupMenuButton<String>(
-            icon: const Icon(
-              Icons.help_outline,
-              color: Color(0xFF461D7C),
-            ),
-            onSelected: (value) {
-              // Handle menu item selection
-            },
-            itemBuilder: (BuildContext context) => [
-              const PopupMenuItem<String>(
-                value: 'about',
-                child: Text('About the Commons'),
-              ),
-              const PopupMenuItem<String>(
-                value: 'rules',
-                child: Text('Scavenger Hunt Rules'),
-              ),
-              const PopupMenuItem<String>(
-                value: 'help',
-                child: Text('Need Help?'),
-              ),
-            ],
-          ),
-          const SizedBox(width: 8),
-        ],
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
-            child: const Text(
-              'Welcome to the Commons Area',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-
-          // This Expanded ensures the image is centered between the texts
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Centers the image
-              children: [
-                Image.asset(
-                  'assets/commons.png',
-                  height: 200,
-                  width: 300,
-                  fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) {
-                    print('Error loading image: $error');
-                    return const Center(
-                      child: Text(
-                        'Logo not found',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    );
-                  },
+          const Expanded(
+            child: Center(
+              child: Text(
+                'Big Stairs',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-              ],
-            ),
-          ),
-
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
-            child: Text(
-              'Where do you want to go next?',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Tooltip(
-                  message: 'Navigate to the stair way',
+                  message: 'Go upstairs',
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const BigStairsScreen()),
-                      );
+                      // Navigate upstairs
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -154,34 +87,12 @@ class _CommonsScreenState extends State<CommonsScreen> {
                   ),
                 ),
                 Tooltip(
-                  message: 'Inspect the pole',
+                  message: 'Go past the stairs',
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const PosterScreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
-                    ),
-                    child: const Icon(
-                      Icons.search,
-                      size: 32,
-                    ),
-                  ),
-                ),
-                Tooltip(
-                  message: 'Navigate to the right hallway',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const RightHallwayScreen()),
+                        MaterialPageRoute(builder: (context) => const CommonsScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -193,6 +104,28 @@ class _CommonsScreenState extends State<CommonsScreen> {
                     ),
                     child: const Icon(
                       Icons.arrow_forward,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Glorious throne room',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ThroneRoomScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.king_bed,
                       size: 32,
                     ),
                   ),
@@ -225,4 +158,4 @@ class _CommonsScreenState extends State<CommonsScreen> {
       ),
     );
   }
-}
+} 
