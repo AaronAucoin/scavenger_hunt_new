@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'quest_completion_screen.dart';
+import 'globalboolean.dart';
 
 class HuntScreen extends StatefulWidget {
   const HuntScreen({super.key});
@@ -12,14 +13,17 @@ class HuntScreen extends StatefulWidget {
 
 class _HuntScreenState extends State<HuntScreen> {
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'HuntScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'HuntScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -69,13 +73,16 @@ class _HuntScreenState extends State<HuntScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const QuestCompletionScreen()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const QuestCompletionScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 48, vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -118,4 +125,4 @@ class _HuntScreenState extends State<HuntScreen> {
       ),
     );
   }
-} 
+}

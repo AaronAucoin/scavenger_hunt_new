@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'basf_lab_screen.dart';
+import 'globalboolean.dart';
 
 class RightHallwayScreen extends StatefulWidget {
   const RightHallwayScreen({super.key});
@@ -12,14 +13,17 @@ class RightHallwayScreen extends StatefulWidget {
 
 class _RightHallwayScreenState extends State<RightHallwayScreen> {
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'RightHallwayScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'RightHallwayScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -71,7 +75,8 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const BasfLabScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const BasfLabScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -115,4 +120,4 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
       ),
     );
   }
-} 
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'basf_lab_screen.dart';
+import 'globalboolean.dart';
 
 class SponsorQuestionScreen extends StatefulWidget {
   const SponsorQuestionScreen({super.key});
@@ -14,14 +15,17 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
   final TextEditingController _answerController = TextEditingController();
   bool _isCorrect = false;
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'SponsorQuestionScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'SponsorQuestionScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -102,13 +106,15 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => const BasfLabScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const BasfLabScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: const Color(0xFF461D7C),
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -150,4 +156,4 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
       ),
     );
   }
-} 
+}

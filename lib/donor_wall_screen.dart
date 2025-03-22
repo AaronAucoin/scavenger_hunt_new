@@ -3,6 +3,7 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'donor_sponsor_screen.dart';
 import 'center_of_engineering_screen.dart';
+import 'globalboolean.dart';
 
 class DonorWallScreen extends StatefulWidget {
   const DonorWallScreen({super.key});
@@ -13,14 +14,17 @@ class DonorWallScreen extends StatefulWidget {
 
 class _DonorWallScreenState extends State<DonorWallScreen> {
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'DonorWallScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'DonorWallScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -72,7 +76,9 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const CenterOfEngineeringScreen()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const CenterOfEngineeringScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -94,7 +100,8 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const DonorSponsorScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const DonorSponsorScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -138,4 +145,4 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
       ),
     );
   }
-} 
+}

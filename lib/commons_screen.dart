@@ -4,6 +4,7 @@ import 'quest_screen.dart';
 import 'poster_screen.dart';
 import 'right_hallway_screen.dart';
 import 'big_stairs_screen.dart';
+import 'globalboolean.dart';
 
 class CommonsScreen extends StatefulWidget {
   const CommonsScreen({super.key});
@@ -14,14 +15,17 @@ class CommonsScreen extends StatefulWidget {
 
 class _CommonsScreenState extends State<CommonsScreen> {
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'CommonsScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'CommonsScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -136,7 +140,8 @@ class _CommonsScreenState extends State<CommonsScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const BigStairsScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const BigStairsScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -158,7 +163,8 @@ class _CommonsScreenState extends State<CommonsScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const PosterScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const PosterScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -180,7 +186,8 @@ class _CommonsScreenState extends State<CommonsScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const RightHallwayScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const RightHallwayScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

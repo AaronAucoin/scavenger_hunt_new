@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
+import 'globalboolean.dart';
 
 class ThroneRoomScreen extends StatefulWidget {
   const ThroneRoomScreen({super.key});
@@ -11,14 +12,17 @@ class ThroneRoomScreen extends StatefulWidget {
 
 class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'ThroneRoomScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'ThroneRoomScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -78,4 +82,4 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
       ),
     );
   }
-} 
+}

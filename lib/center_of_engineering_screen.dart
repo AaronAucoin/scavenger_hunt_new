@@ -3,24 +3,29 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'crane_quest_completion_screen.dart';
 import 'big_stairs_screen.dart';
+import 'globalboolean.dart';
 
 class CenterOfEngineeringScreen extends StatefulWidget {
   const CenterOfEngineeringScreen({super.key});
 
   @override
-  State<CenterOfEngineeringScreen> createState() => _CenterOfEngineeringScreenState();
+  State<CenterOfEngineeringScreen> createState() =>
+      _CenterOfEngineeringScreenState();
 }
 
 class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'CenterOfEngineeringScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'CenterOfEngineeringScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -72,7 +77,8 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const BigStairsScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const BigStairsScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -94,7 +100,9 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const CraneQuestCompletionScreen()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const CraneQuestCompletionScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

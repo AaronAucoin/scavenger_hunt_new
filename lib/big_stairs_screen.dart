@@ -3,6 +3,7 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'throne_room_screen.dart';
 import 'commons_screen.dart';
+import 'globalboolean.dart';
 
 class BigStairsScreen extends StatefulWidget {
   const BigStairsScreen({super.key});
@@ -13,14 +14,17 @@ class BigStairsScreen extends StatefulWidget {
 
 class _BigStairsScreenState extends State<BigStairsScreen> {
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'BigStairsScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'BigStairsScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -114,7 +118,8 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const ThroneRoomScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const ThroneRoomScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -136,7 +141,8 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const CommonsScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const CommonsScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -158,7 +164,8 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const ThroneRoomScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const ThroneRoomScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -203,4 +210,4 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
       ),
     );
   }
-} 
+}

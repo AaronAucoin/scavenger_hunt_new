@@ -3,6 +3,7 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'donor_wall_screen.dart';
 import 'sponsor_question_screen.dart';
+import 'globalboolean.dart';
 
 class BasfLabScreen extends StatefulWidget {
   const BasfLabScreen({super.key});
@@ -13,14 +14,17 @@ class BasfLabScreen extends StatefulWidget {
 
 class _BasfLabScreenState extends State<BasfLabScreen> {
   int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'BasfLabScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'BasfLabScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -72,7 +76,8 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const DonorWallScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const DonorWallScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -94,7 +99,9 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SponsorQuestionScreen()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const SponsorQuestionScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -138,4 +145,4 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
       ),
     );
   }
-} 
+}
