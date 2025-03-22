@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'hunt_screen.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'throne_room_screen.dart';
@@ -35,126 +34,172 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF461D7C),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: const Text(
-          'Big Stairs',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
+    return WillPopScope(
+      onWillPop: () async {
+        // Only allow back navigation if we're not on a main tab
+        return Navigator.of(context).canPop();
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xFF461D7C),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: const Text(
+            'Big Stairs',
+            style: TextStyle(
+              color: Color(0xFF461D7C),
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          const Expanded(
-            child: Center(
-              child: Text(
-                'Big Stairs',
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
+              child: const Text(
+                'The Big Stairs',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 32.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Tooltip(
-                  message: 'Go upstairs',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navigate upstairs
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_upward,
-                      size: 32,
-                    ),
-                  ),
-                ),
-                Tooltip(
-                  message: 'Go past the stairs',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const CommonsScreen()),
+
+            // This Expanded ensures the image is centered between the texts
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/bigstair.png',
+                    height: 200,
+                    width: 300,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      print('Error loading image: $error');
+                      return const Center(
+                        child: Text(
+                          'Logo not found',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       );
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      size: 32,
-                    ),
                   ),
-                ),
-                Tooltip(
-                  message: 'Glorious throne room',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const ThroneRoomScreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
-                    ),
-                    child: const Icon(
-                      Icons.king_bed,
-                      size: 32,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        selectedItemColor: const Color(0xFF461D7C),
-        unselectedItemColor: Colors.grey,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.games),
-            label: 'Game',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Map',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            label: 'Quests',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+              child: Text(
+                'Where do you want to go next?',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(bottom: 32.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Tooltip(
+                    message: 'Go upstairs',
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ThroneRoomScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF461D7C),
+                        padding: const EdgeInsets.all(24),
+                        shape: const CircleBorder(),
+                        elevation: 4,
+                      ),
+                      child: const Icon(
+                        Icons.arrow_upward,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                  Tooltip(
+                    message: 'Go past the stairs',
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const CommonsScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF461D7C),
+                        padding: const EdgeInsets.all(24),
+                        shape: const CircleBorder(),
+                        elevation: 4,
+                      ),
+                      child: const Icon(
+                        Icons.arrow_forward,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                  Tooltip(
+                    message: 'Glorious throne room',
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ThroneRoomScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF461D7C),
+                        padding: const EdgeInsets.all(24),
+                        shape: const CircleBorder(),
+                        elevation: 4,
+                      ),
+                      child: const Icon(
+                        Icons.king_bed,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          selectedItemColor: const Color(0xFF461D7C),
+          unselectedItemColor: Colors.grey,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.games),
+              label: 'Game',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map),
+              label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              label: 'Quests',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'hunt_screen.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'donor_wall_screen.dart';

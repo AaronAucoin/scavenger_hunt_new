@@ -10,7 +10,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  int _selectedIndex = 1;
+  final int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
     if (index == 0) {
@@ -19,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
         MaterialPageRoute(builder: (context) => const HuntScreen()),
       );
     } else if (index == 2) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
       );
@@ -28,31 +28,43 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Map'),
-      ),
-      body: const Center(
-        child: Text('Map Screen Content'),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.games),
-            label: 'Game',
+    return WillPopScope(
+      onWillPop: () async {
+        // Only allow back navigation if we're not on a main tab
+        return Navigator.of(context).canPop();
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xFF461D7C),
+        body: const Center(
+          child: Text(
+            'Map Screen Content',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Map',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            label: 'Quests',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        onTap: _onItemTapped,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          selectedItemColor: const Color(0xFF461D7C),
+          unselectedItemColor: Colors.grey,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.games),
+              label: 'Game',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map),
+              label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              label: 'Quests',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

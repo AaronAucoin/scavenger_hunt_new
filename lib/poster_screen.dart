@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'commons_screen.dart';
 
 class PosterScreen extends StatelessWidget {
   const PosterScreen({super.key});
