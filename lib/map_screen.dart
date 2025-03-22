@@ -21,6 +21,8 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   final int _selectedIndex = 1;
   final GlobalState _globalState = GlobalState();
+  final TransformationController _transformationController =
+      TransformationController();
 
   Widget _getLastGameScreen() {
     switch (_globalState.lastGameScreen) {
@@ -65,17 +67,34 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        // Only allow back navigation if we're not on a main tab
         return Navigator.of(context).canPop();
       },
       child: Scaffold(
         backgroundColor: const Color(0xFF461D7C),
-        body: const Center(
-          child: Text(
-            'Map Screen Content',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
+        body: InteractiveViewer(
+          transformationController: _transformationController,
+          minScale: 0.5,
+          maxScale: 4.0,
+          boundaryMargin: const EdgeInsets.all(0),
+          clipBehavior: Clip.hardEdge,
+          child: Center(
+            child: GestureDetector(
+              onDoubleTap: () {
+                _transformationController.value = Matrix4.identity();
+              },
+              child: Image.asset(
+                'assets/pftMap.png',
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  print('Error loading map: $error');
+                  return const Center(
+                    child: Text(
+                      'Map not found',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ),

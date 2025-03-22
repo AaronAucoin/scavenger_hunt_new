@@ -61,9 +61,9 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
               child: const Text(
-                'The Big Stairs',
+                'The Big Stairs are a great place to work on homework and hang out with friends!',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -78,7 +78,7 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                 children: [
                   Image.asset(
                     'assets/bigstair.png',
-                    height: 200,
+                    height: 300,
                     width: 300,
                     fit: BoxFit.contain,
                     errorBuilder: (context, error, stackTrace) {

@@ -45,7 +45,7 @@ class _CommonsScreenState extends State<CommonsScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
-          'Commons',
+          'Commons Area',
           style: TextStyle(
             color: Color(0xFF461D7C),
             fontWeight: FontWeight.bold,
@@ -83,9 +83,9 @@ class _CommonsScreenState extends State<CommonsScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
             child: const Text(
-              'Welcome to the Commons Area',
+              'The Commons Area has lots of tables that you can sit at to study and socialize! (Or enjoy your Panera food)',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -100,7 +100,7 @@ class _CommonsScreenState extends State<CommonsScreen> {
               children: [
                 Image.asset(
                   'assets/commons.png',
-                  height: 200,
+                  height: 300,
                   width: 300,
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {

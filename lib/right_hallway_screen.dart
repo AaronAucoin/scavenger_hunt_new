@@ -51,17 +51,36 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Expanded(
+          Expanded(
             child: Center(
-              child: Text(
-                'Right Hallway',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+              child: Image.asset(
+                'assets/righthallway.png',
+                height: 300,
+                width: 300,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  print('Error loading image: $error');
+                  return const Center(
+                    child: Text(
+                      'Logo not found',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  );
+                },
               ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            child: Text(
+              'Proceed down the hallway...',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
           Padding(
