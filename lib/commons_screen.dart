@@ -83,7 +83,7 @@ class _CommonsScreenState extends State<CommonsScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
             child: const Text(
-              'The Commons Area has lots of tables that you can sit at to study and socialize! (Or enjoy your Panera food)',
+              'The Commons Area has lots of tables that you can sit at to study and socialize! What else could be found here...?',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'donor_wall_screen.dart';
-import 'sponsor_question_screen.dart';
 import 'globalboolean.dart';
 
 class BasfLabScreen extends StatefulWidget {
@@ -15,6 +14,9 @@ class BasfLabScreen extends StatefulWidget {
 class _BasfLabScreenState extends State<BasfLabScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
+  final TextEditingController _answerController = TextEditingController();
+  String? _feedbackText;
+  bool _isCorrect = false;
 
   void _onItemTapped(int index) {
     if (index == 1) {
@@ -36,6 +38,26 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
     }
   }
 
+  void _checkAnswer() {
+    setState(() {
+      if (_answerController.text.trim().toUpperCase() == 'BASF') {
+        _feedbackText =
+            'Correct! This is the BASF Lab.\nThis task has been checked off your checklist.';
+        _isCorrect = true;
+        _globalState.basf = true;
+      } else {
+        _feedbackText = 'Try again!';
+        _isCorrect = false;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _answerController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,26 +74,150 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Expanded(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            child: Text(
+              "You've found the Sustainable Living Lab!",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          SizedBox(
+            height: 300,
             child: Center(
-              child: Text(
-                'BASF Lab',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+              child: Image.asset(
+                'assets/basflab.png',
+                width: 300,
+                height: 300,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  print('Error loading image: $error');
+                  return const Center(
+                    child: Text(
+                      'Logo not found',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  );
+                },
               ),
             ),
           ),
+          const Spacer(flex: 1),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Text(
+              'What is the sponsor company of this lab?',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _answerController,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: 'Enter company name',
+                      hintStyle:
+                          TextStyle(color: Colors.white.withOpacity(0.5)),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.1),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide.none,
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                    ),
+                    onSubmitted: (_) => _checkAnswer(),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: _checkAnswer,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF461D7C),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: const Text('Submit'),
+                ),
+              ],
+            ),
+          ),
+          if (_feedbackText != null)
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+              child: Column(
+                children: [
+                  Text(
+                    _isCorrect
+                        ? 'Correct! This is the BASF Lab.'
+                        : 'Try again!',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: _isCorrect ? Colors.green : Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  if (_isCorrect)
+                    const Text(
+                      'This task has been checked off your checklist',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                ],
+              ),
+            ),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Tooltip(
-                  message: 'Go to Donor Wall',
+                  message: 'Go back to the right hallway',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.arrow_back,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Proceed to the donor wall',
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -88,31 +234,7 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
-                      Icons.arrow_back,
-                      size: 32,
-                    ),
-                  ),
-                ),
-                Tooltip(
-                  message: 'Find the sponsor',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const SponsorQuestionScreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
-                    ),
-                    child: const Icon(
-                      Icons.search,
+                      Icons.arrow_forward,
                       size: 32,
                     ),
                   ),

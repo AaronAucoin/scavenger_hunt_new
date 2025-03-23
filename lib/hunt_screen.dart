@@ -40,64 +40,93 @@ class _HuntScreenState extends State<HuntScreen> {
       },
       child: Scaffold(
         backgroundColor: const Color(0xFF461D7C),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  'Welcome to Panera',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: const Text(
+            'Panera',
+            style: TextStyle(
+              color: Color(0xFF461D7C),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        body: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Your first stop is Panera',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Your first quest will be completed here, think you can figure out which one it is?',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Complete your first task by ordering a bagel!',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const QuestCompletionScreen()),
+                  const SizedBox(height: 32),
+                  Image.asset(
+                    'assets/paneratablet.png',
+                    height: 300,
+                    width: 300,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      print('Error loading image: $error');
+                      return const Center(
+                        child: Text(
+                          'Logo not found',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       );
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 48, vertical: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                  ),
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const QuestCompletionScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF461D7C),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 48, vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 4,
                       ),
-                      elevation: 4,
-                    ),
-                    child: const Text(
-                      'Order',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                      child: const Text(
+                        'Order',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

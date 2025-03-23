@@ -39,7 +39,7 @@ class QuestCompletionScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             const Text(
-              'Congratulations on completing your first quest!',
+              'Congratulations, you have completed your first task!',
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.white,
@@ -53,13 +53,15 @@ class QuestCompletionScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const CommonsScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const CommonsScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: const Color(0xFF461D7C),
-                  padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -79,4 +81,4 @@ class QuestCompletionScreen extends StatelessWidget {
       ),
     );
   }
-} 
+}

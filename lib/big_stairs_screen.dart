@@ -158,29 +158,6 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                       ),
                     ),
                   ),
-                  Tooltip(
-                    message: 'Glorious throne room',
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ThroneRoomScreen()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: const Color(0xFF461D7C),
-                        padding: const EdgeInsets.all(24),
-                        shape: const CircleBorder(),
-                        elevation: 4,
-                      ),
-                      child: const Icon(
-                        Icons.king_bed,
-                        size: 32,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
