@@ -3,6 +3,8 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'donor_wall_screen.dart';
 import 'globalboolean.dart';
+import 'sponsor_question_screen.dart';
+import 'right_hallway_screen.dart';
 
 class BasfLabScreen extends StatefulWidget {
   const BasfLabScreen({super.key});
@@ -66,7 +68,7 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
-          'BASF Lab',
+          'Sustainable Living Lab',
           style: TextStyle(
             color: Color(0xFF461D7C),
             fontWeight: FontWeight.bold,
@@ -198,10 +200,13 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Tooltip(
-                  message: 'Go back to the right hallway',
+                  message: 'Go to Donor Wall',
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const DonorWallScreen()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -217,13 +222,12 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                   ),
                 ),
                 Tooltip(
-                  message: 'Proceed to the donor wall',
+                  message: 'Turn around',
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const DonorWallScreen()),
+                        MaterialPageRoute(builder: (context) => const RightHallwayScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -234,7 +238,7 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
-                      Icons.arrow_forward,
+                      Icons.rotate_left,
                       size: 32,
                     ),
                   ),

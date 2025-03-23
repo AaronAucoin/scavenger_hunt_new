@@ -3,6 +3,7 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'basf_lab_screen.dart';
 import 'globalboolean.dart';
+import 'donor_wall_screen.dart';
 
 class SponsorQuestionScreen extends StatefulWidget {
   const SponsorQuestionScreen({super.key});
@@ -12,7 +13,6 @@ class SponsorQuestionScreen extends StatefulWidget {
 }
 
 class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
-  final TextEditingController _answerController = TextEditingController();
   bool _isCorrect = false;
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
@@ -37,8 +37,8 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
     }
   }
 
-  void _checkAnswer() {
-    if (_answerController.text.trim().toUpperCase() == 'BASF') {
+  void _checkAnswer(String answer) {
+    if (answer == 'BASF') {
       setState(() {
         _isCorrect = true;
       });
@@ -66,31 +66,24 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Enter the name of the sponsor of the sustainable living lab:',
+              'Which name can you find on the wall?',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 24,
                 color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 20),
-            TextField(
-              controller: _answerController,
-              style: const TextStyle(color: Colors.white),
-              decoration: const InputDecoration(
-                hintText: 'Enter your answer',
-                hintStyle: TextStyle(color: Colors.white70),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-              ),
-              onSubmitted: (_) => _checkAnswer(),
-            ),
+            const SizedBox(height: 40),
+            if (!_isCorrect) ...[
+              _buildAnswerButton('BASF'),
+              const SizedBox(height: 16),
+              _buildAnswerButton('Dow Chemical'),
+              const SizedBox(height: 16),
+              _buildAnswerButton('DuPont'),
+              const SizedBox(height: 16),
+              _buildAnswerButton('3M'),
+            ],
             if (_isCorrect) ...[
-              const SizedBox(height: 20),
               const Text(
                 'Quest completed!',
                 style: TextStyle(
@@ -107,14 +100,13 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const BasfLabScreen()),
+                          builder: (context) => const DonorWallScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: const Color(0xFF461D7C),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -153,6 +145,31 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+      ),
+    );
+  }
+
+  Widget _buildAnswerButton(String answer) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () => _checkAnswer(answer),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          foregroundColor: const Color(0xFF461D7C),
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          elevation: 4,
+        ),
+        child: Text(
+          answer,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }

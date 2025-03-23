@@ -1,0 +1,107 @@
+import 'package:flutter/material.dart';
+import 'map_screen.dart';
+import 'quest_screen.dart';
+import 'globalboolean.dart';
+
+class RaceCarScreen extends StatefulWidget {
+  const RaceCarScreen({super.key});
+
+  @override
+  State<RaceCarScreen> createState() => _RaceCarScreenState();
+}
+
+class _RaceCarScreenState extends State<RaceCarScreen> {
+  int _selectedIndex = 0;
+  final GlobalState _globalState = GlobalState();
+
+  void _onItemTapped(int index) {
+    if (index == 1) {
+      _globalState.lastGameScreen = 'RaceCarScreen';
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const MapScreen()),
+      );
+    } else if (index == 2) {
+      _globalState.lastGameScreen = 'RaceCarScreen';
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const QuestScreen()),
+      );
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () async {
+        return Navigator.of(context).canPop();
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xFF461D7C),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: const Text(
+            'Cool Race Car',
+            style: TextStyle(
+              color: Color(0xFF461D7C),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
+              child: const Text(
+                'Cool Race Car',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const Expanded(
+              child: Center(
+                child: Text(
+                  'Cool Race Car',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          selectedItemColor: const Color(0xFF461D7C),
+          unselectedItemColor: Colors.grey,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.games),
+              label: 'Game',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map),
+              label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              label: 'Quests',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
+      ),
+    );
+  }
+} 

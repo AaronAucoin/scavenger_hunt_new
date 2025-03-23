@@ -3,6 +3,7 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'crane_quest_completion_screen.dart';
 import 'big_stairs_screen.dart';
+import 'donor_wall_screen.dart';
 import 'globalboolean.dart';
 
 class CenterOfEngineeringScreen extends StatefulWidget {
@@ -72,7 +73,7 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Tooltip(
-                  message: 'Inspect the Stairwell',
+                  message: 'Turn around',
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -89,7 +90,7 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
-                      Icons.arrow_back,
+                      Icons.rotate_left,
                       size: 32,
                     ),
                   ),
@@ -114,6 +115,29 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
                     ),
                     child: const Icon(
                       Icons.search,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Go to Donor Wall',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DonorWallScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.arrow_forward,
                       size: 32,
                     ),
                   ),

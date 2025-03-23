@@ -70,14 +70,35 @@ class _QuestScreenState extends State<QuestScreen> {
       },
       child: Scaffold(
         backgroundColor: const Color(0xFF461D7C),
-        body: const Center(
-          child: Text(
-            'Quest Screen Content',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
+        body: ListView(
+          padding: const EdgeInsets.all(16.0),
+          children: [
+            const Text(
+              'Your Quests',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
-          ),
+            const SizedBox(height: 20),
+            _buildQuestItem('Order bagel', _globalState.bagel),
+            const Divider(color: Colors.white70),
+            _buildQuestItem('Find the royal throne', _globalState.throne),
+            const Divider(color: Colors.white70),
+            _buildQuestItem('Figure out the name of the donor on the Donor wall', _globalState.donor),
+            const Divider(color: Colors.white70),
+            _buildQuestItem('Figure out the sponser of the sustainable living lab', _globalState.basf),
+            const Divider(color: Colors.white70),
+            _buildQuestItem('Find the flier on the wall', _globalState.flier),
+            const Divider(color: Colors.white70),
+            _buildQuestItem('Something about big stairs', _globalState.stairs),
+            const Divider(color: Colors.white70),
+            _buildQuestItem('Find the cool car', _globalState.car),
+            const Divider(color: Colors.white70),
+            _buildQuestItem('Find the SUPER BIG crane', _globalState.crane),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
@@ -100,6 +121,32 @@ class _QuestScreenState extends State<QuestScreen> {
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
         ),
+      ),
+    );
+  }
+
+  Widget _buildQuestItem(String text, bool isCompleted) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      child: Row(
+        children: [
+          Icon(
+            isCompleted ? Icons.check_box : Icons.check_box_outline_blank,
+            color: Colors.white,
+            size: 24,
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                decoration: isCompleted ? TextDecoration.lineThrough : null,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

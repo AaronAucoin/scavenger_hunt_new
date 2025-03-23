@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
-import 'donor_sponsor_screen.dart';
+import 'sponsor_question_screen.dart';
 import 'center_of_engineering_screen.dart';
+import 'basf_lab_screen.dart';
 import 'globalboolean.dart';
 
 class DonorWallScreen extends StatefulWidget {
@@ -71,14 +72,13 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Tooltip(
-                  message: 'Go down the left hallway',
+                  message: 'Go down the hallway past the donor wall',
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const CenterOfEngineeringScreen()),
+                            builder: (context) => const CenterOfEngineeringScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -89,7 +89,7 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
-                      Icons.arrow_back,
+                      Icons.arrow_upward,
                       size: 32,
                     ),
                   ),
@@ -101,7 +101,7 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const DonorSponsorScreen()),
+                            builder: (context) => const SponsorQuestionScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -113,6 +113,29 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                     ),
                     child: const Icon(
                       Icons.search,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Turn around',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BasfLabScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.rotate_left,
                       size: 32,
                     ),
                   ),

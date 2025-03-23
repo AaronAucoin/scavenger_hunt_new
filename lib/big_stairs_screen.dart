@@ -3,6 +3,8 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'throne_room_screen.dart';
 import 'commons_screen.dart';
+import 'center_of_engineering_screen.dart';
+import 'race_car_screen.dart';
 import 'globalboolean.dart';
 
 class BigStairsScreen extends StatefulWidget {
@@ -113,13 +115,13 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Tooltip(
-                    message: 'Go upstairs',
+                    message: 'Check out the race car',
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const ThroneRoomScreen()),
+                              builder: (context) => const RaceCarScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -136,7 +138,30 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                     ),
                   ),
                   Tooltip(
-                    message: 'Go past the stairs',
+                    message: 'Turn around',
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CenterOfEngineeringScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF461D7C),
+                        padding: const EdgeInsets.all(24),
+                        shape: const CircleBorder(),
+                        elevation: 4,
+                      ),
+                      child: const Icon(
+                        Icons.rotate_left,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                  Tooltip(
+                    message: 'Navigate past the stairs to the commons',
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -154,6 +179,29 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                       ),
                       child: const Icon(
                         Icons.arrow_forward,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                  Tooltip(
+                    message: 'Secret Throne Room',
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ThroneRoomScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF461D7C),
+                        padding: const EdgeInsets.all(24),
+                        shape: const CircleBorder(),
+                        elevation: 4,
+                      ),
+                      child: const Icon(
+                        Icons.help_outline,
                         size: 32,
                       ),
                     ),

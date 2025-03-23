@@ -3,6 +3,7 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'basf_lab_screen.dart';
 import 'globalboolean.dart';
+import 'commons_screen.dart';
 
 class RightHallwayScreen extends StatefulWidget {
   const RightHallwayScreen({super.key});
@@ -86,7 +87,7 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Tooltip(
                   message: 'Proceed to the BASF LAB',
@@ -107,6 +108,28 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
                     ),
                     child: const Icon(
                       Icons.arrow_upward,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Back to Commons Area',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const CommonsScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.arrow_downward,
                       size: 32,
                     ),
                   ),

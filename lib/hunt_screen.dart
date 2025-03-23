@@ -99,6 +99,7 @@ class _HuntScreenState extends State<HuntScreen> {
                     padding: const EdgeInsets.only(bottom: 16.0),
                     child: ElevatedButton(
                       onPressed: () {
+                        _globalState.bagel = true;
                         Navigator.push(
                           context,
                           MaterialPageRoute(
