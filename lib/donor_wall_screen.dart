@@ -25,7 +25,7 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
-      _globalState.lastGameScreen = 'DonorWallScreen';
+      _globalState.lastGameScreen = 'EEEEEEEE';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -66,6 +66,38 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
               ),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            child: Text(
+              "You've found the Donor Wall!",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          SizedBox(
+            height: 300,
+            child: Center(
+              child: Image.asset(
+                'assets/donorwall.png',
+                width: 300,
+                height: 300,
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  print('Error loading image: $error');
+                  return const Center(
+                    child: Text(
+                      'Logo not found',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          const Spacer(flex: 1),
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(

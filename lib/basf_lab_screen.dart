@@ -3,7 +3,6 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'donor_wall_screen.dart';
 import 'globalboolean.dart';
-import 'sponsor_question_screen.dart';
 import 'right_hallway_screen.dart';
 
 class BasfLabScreen extends StatefulWidget {

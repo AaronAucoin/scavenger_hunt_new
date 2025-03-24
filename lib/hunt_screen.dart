@@ -12,7 +12,7 @@ class HuntScreen extends StatefulWidget {
 }
 
 class _HuntScreenState extends State<HuntScreen> {
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
