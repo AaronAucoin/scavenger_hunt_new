@@ -14,6 +14,12 @@ class _RaceCarScreenState extends State<RaceCarScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
+  @override
+  void initState() {
+    super.initState();
+    _globalState.car = true;
+  }
+
   void _onItemTapped(int index) {
     if (index == 1) {
       _globalState.lastGameScreen = 'RaceCarScreen';
@@ -57,14 +63,28 @@ class _RaceCarScreenState extends State<RaceCarScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
-              child: const Text(
-                'Cool Race Car',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
+              child: Column(
+                children: [
+                  const Text(
+                    'Quest completed!',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Cool Race Car',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
             const Expanded(

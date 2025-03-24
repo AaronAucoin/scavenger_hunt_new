@@ -14,6 +14,12 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
+  @override
+  void initState() {
+    super.initState();
+    _globalState.throne = true;
+  }
+
   void _onItemTapped(int index) {
     if (index == 1) {
       _globalState.lastGameScreen = 'ThroneRoomScreen';
@@ -53,14 +59,28 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
-            child: const Text(
-              'This room has some of the most epic spinny chairs ever. These chairs can also be found all throughout PFT.',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
+            child: Column(
+              children: [
+                const Text(
+                  'Quest completed!',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'This room has some of the most epic spinny chairs ever. These chairs can also be found all throughout PFT.',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
           Expanded(

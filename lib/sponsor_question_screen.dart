@@ -41,6 +41,7 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
     if (answer == 'BASF') {
       setState(() {
         _isCorrect = true;
+        _globalState.donor = true;
       });
     }
   }
