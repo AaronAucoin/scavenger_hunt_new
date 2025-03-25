@@ -77,23 +77,25 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(
-            height: 300,
+          Expanded(
+            flex: 3,
             child: Center(
-              child: Image.asset(
-                'assets/donorwall.png',
-                width: 300,
-                height: 300,
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                  print('Error loading image: $error');
-                  return const Center(
-                    child: Text(
-                      'Logo not found',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  );
-                },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.5,
+                child: Image.asset(
+                  'assets/donorwall.png',
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    print('Error loading image: $error');
+                    return const Center(
+                      child: Text(
+                        'Logo not found',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ),

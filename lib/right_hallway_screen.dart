@@ -52,34 +52,68 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 24.0),
+            child: Column(
+              children: [
+                const Text(
+                  'The Right Hallway',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 0.5,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                const Text(
+                  'Proceed down the hallway to discover what lies ahead...',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    letterSpacing: 0.3,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
           Expanded(
+            flex: 3,
             child: Center(
-              child: Image.asset(
-                'assets/righthallway.png',
-                height: 300,
-                width: 300,
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                  print('Error loading image: $error');
-                  return const Center(
-                    child: Text(
-                      'Logo not found',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  );
-                },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.5,
+                child: Image.asset(
+                  'assets/righthallway.png',
+                  fit: BoxFit.contain,
+                  errorBuilder: (context, error, stackTrace) {
+                    print('Error loading image: $error');
+                    return const Center(
+                      child: Text(
+                        'Logo not found',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
             child: Text(
-              'Proceed down the hallway...',
+              'Choose your direction',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
                 color: Colors.white,
+                letterSpacing: 0.3,
               ),
               textAlign: TextAlign.center,
             ),

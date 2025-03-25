@@ -79,29 +79,45 @@ class _CommonsScreenState extends State<CommonsScreen> {
         ],
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
-            child: const Text(
-              'The Commons Area has lots of tables that you can sit at to study and socialize! What else could be found here...?',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
+            padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 24.0),
+            child: Column(
+              children: [
+                const Text(
+                  'The Commons Area',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 0.5,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                const Text(
+                  'Lots of tables that you can sit at to study and socialize! What else could be found here...?',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    letterSpacing: 0.3,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
-
-          // This Expanded ensures the image is centered between the texts
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Centers the image
-              children: [
-                Image.asset(
+            flex: 3,
+            child: Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.5,
+                child: Image.asset(
                   'assets/commons.png',
-                  height: 300,
-                  width: 300,
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
                     print('Error loading image: $error');
@@ -113,22 +129,22 @@ class _CommonsScreenState extends State<CommonsScreen> {
                     );
                   },
                 ),
-              ],
+              ),
             ),
           ),
-
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
             child: Text(
               'Where do you want to go next?',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
                 color: Colors.white,
+                letterSpacing: 0.3,
               ),
               textAlign: TextAlign.center,
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(
