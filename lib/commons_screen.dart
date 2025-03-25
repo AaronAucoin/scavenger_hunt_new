@@ -5,6 +5,7 @@ import 'poster_screen.dart';
 import 'right_hallway_screen.dart';
 import 'big_stairs_screen.dart';
 import 'globalboolean.dart';
+import 'flier_screen.dart';
 
 class CommonsScreen extends StatefulWidget {
   const CommonsScreen({super.key});
@@ -153,6 +154,29 @@ class _CommonsScreenState extends State<CommonsScreen> {
                     ),
                     child: const Icon(
                       Icons.arrow_upward,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Turn around to see the flier',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FlierScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.rotate_left,
                       size: 32,
                     ),
                   ),

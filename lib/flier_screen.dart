@@ -3,30 +3,32 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'globalboolean.dart';
 
-class CraneQuestCompletionScreen extends StatefulWidget {
-  const CraneQuestCompletionScreen({super.key});
+class FlierScreen extends StatefulWidget {
+  const FlierScreen({super.key});
 
   @override
-  State<CraneQuestCompletionScreen> createState() => _CraneQuestCompletionScreenState();
+  State<FlierScreen> createState() => _FlierScreenState();
 }
 
-class _CraneQuestCompletionScreenState extends State<CraneQuestCompletionScreen> {
+class _FlierScreenState extends State<FlierScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
   @override
   void initState() {
     super.initState();
-    _globalState.crane = true;
+    _globalState.flier = true;
   }
 
   void _onItemTapped(int index) {
     if (index == 1) {
+      _globalState.lastGameScreen = 'FlierScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
+      _globalState.lastGameScreen = 'FlierScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -46,23 +48,50 @@ class _CraneQuestCompletionScreenState extends State<CraneQuestCompletionScreen>
         backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
-          'Quest Completed',
+          'Flier Found!',
           style: TextStyle(
             color: Color(0xFF461D7C),
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          'Quest completed\nCrane found',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Center(
+            child: Text(
+              'Quest completed!\nYou found the flier on the wall!',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
-          textAlign: TextAlign.center,
-        ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              foregroundColor: const Color(0xFF461D7C),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              elevation: 4,
+            ),
+            child: const Text(
+              'Return to Commons',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
