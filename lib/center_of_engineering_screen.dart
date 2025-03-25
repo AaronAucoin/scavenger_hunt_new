@@ -67,6 +67,21 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
               ),
             ),
           ),
+          Image.asset(
+              'assets/centerofeng1.png',
+              height: 300,
+              width: 300,
+              fit: BoxFit.contain,
+              errorBuilder: (context, error, stackTrace) {
+                print('Error loading image: $error');
+                return const Center(
+                  child: Text(
+                    'Poster image not found',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                );
+              },
+            ),
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(
