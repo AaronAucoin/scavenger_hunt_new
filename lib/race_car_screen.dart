@@ -84,6 +84,21 @@ class _RaceCarScreenState extends State<RaceCarScreen> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  Image.asset(
+              'assets/coolcar.png',
+              height: 300,
+              width: 300,
+              fit: BoxFit.contain,
+              errorBuilder: (context, error, stackTrace) {
+                print('Error loading image: $error');
+                return const Center(
+                  child: Text(
+                    'Poster image not found',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                );
+              },
+            ),
                 ],
               ),
             ),

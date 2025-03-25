@@ -132,7 +132,7 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                         elevation: 4,
                       ),
                       child: const Icon(
-                        Icons.arrow_upward,
+                        Icons.car_rental_outlined,
                         size: 32,
                       ),
                     ),
@@ -141,11 +141,7 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                     message: 'Turn around',
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const CenterOfEngineeringScreen()),
-                        );
+                        Navigator.pop(context,);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
