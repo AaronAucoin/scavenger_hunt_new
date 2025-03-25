@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'commons_screen.dart';
+import 'globalboolean.dart';
 
 class PosterScreen extends StatelessWidget {
   const PosterScreen({super.key});
@@ -30,7 +31,7 @@ class PosterScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
               child: Text(
-                'You found a poster!',
+                'You found the flier!',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
