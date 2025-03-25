@@ -71,6 +71,27 @@ class _MapScreenState extends State<MapScreen> {
       },
       child: Scaffold(
         backgroundColor: const Color(0xFF461D7C),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: const Text(
+            'Map',
+            style: TextStyle(
+              color: Color(0xFF461D7C),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          actions: [
+            Tooltip(
+              message: 'Pick a button to teleport to that location',
+              child: Icon(
+                Icons.help_outline,
+                color: Color(0xFF461D7C),
+              ),
+            ),
+            const SizedBox(width: 16),
+          ],
+        ),
         body: InteractiveViewer(
           transformationController: _transformationController,
           minScale: 0.5,
