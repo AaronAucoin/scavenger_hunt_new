@@ -54,18 +54,6 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
       ),
       body: Column(
         children: [
-          const Expanded(
-            child: Center(
-              child: Text(
-                'Donor Wall',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
             child: Text(

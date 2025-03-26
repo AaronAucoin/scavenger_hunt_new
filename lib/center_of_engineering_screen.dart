@@ -55,33 +55,41 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
       ),
       body: Column(
         children: [
-          const Expanded(
-            child: Center(
-              child: Text(
-                'Center of Engineering',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+          const SizedBox(height: 32),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
+            child: Text(
+              'The Center of Engineering provides many resources to students at LSU',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+                letterSpacing: 0.3,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(height: 24),
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.5,
+              child: Image.asset(
+                'assets/centerofeng1.png',
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  print('Error loading image: $error');
+                  return const Center(
+                    child: Text(
+                      'Poster image not found',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  );
+                },
               ),
             ),
           ),
-          Image.asset(
-              'assets/centerofeng1.png',
-              height: 300,
-              width: 300,
-              fit: BoxFit.contain,
-              errorBuilder: (context, error, stackTrace) {
-                print('Error loading image: $error');
-                return const Center(
-                  child: Text(
-                    'Poster image not found',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                );
-              },
-            ),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(

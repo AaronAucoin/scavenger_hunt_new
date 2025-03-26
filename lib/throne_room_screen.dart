@@ -58,7 +58,7 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
+            padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
             child: Column(
               children: [
                 const Text(
@@ -70,7 +70,7 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
                 const Text(
                   'This room has some of the most epic spinny chairs ever. These chairs can also be found all throughout PFT.',
                   style: TextStyle(
@@ -83,30 +83,29 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
               ],
             ),
           ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/coolchair.png',
-                  height: 300,
-                  width: 300,
-                  fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) {
-                    print('Error loading image: $error');
-                    return const Center(
-                      child: Text(
-                        'Throne image not found',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    );
-                  },
-                ),
-              ],
+          const SizedBox(height: 16),
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.4,
+              child: Image.asset(
+                'assets/coolchair.png',
+                fit: BoxFit.contain,
+                errorBuilder: (context, error, stackTrace) {
+                  print('Error loading image: $error');
+                  return const Center(
+                    child: Text(
+                      'Throne image not found',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
+          const Spacer(),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
             child: Text(
               'Where do you want to go next?',
               style: TextStyle(
@@ -117,7 +116,7 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 32.0),
+            padding: const EdgeInsets.only(bottom: 16.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
