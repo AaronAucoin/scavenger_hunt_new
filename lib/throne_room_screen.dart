@@ -55,95 +55,90 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
-            child: Column(
-              children: [
-                const Text(
-                  'Quest completed!',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
+      body: SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 16),
+                      Text(
+                        'You found the spinny chair room!',
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                              fontSize: 24,
+                              color: Colors.white,
+                            ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const Spacer(),
+                      Text(
+                        'These are some of the most epic spinny chairs ever. They can also be found all around PFT, not just in this room!',
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 16),
+                      Image.asset(
+                        'assets/coolchair.png',
+                        height: 300,
+                        width: 300,
+                        fit: BoxFit.contain,
+                        errorBuilder: (context, error, stackTrace) {
+                          print('Error loading image: $error');
+                          return const Center(
+                            child: Text(
+                              'Poster image not found',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        'This task has been checked off your checklist.',
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const Spacer(), // Push everything above upwards
+                    ],
                   ),
-                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 8),
-                const Text(
-                  'This room has some of the most epic spinny chairs ever. These chairs can also be found all throughout PFT.',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 16),
-          Center(
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.4,
-              child: Image.asset(
-                'assets/coolchair.png',
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) {
-                  print('Error loading image: $error');
-                  return const Center(
-                    child: Text(
-                      'Throne image not found',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  );
-                },
               ),
-            ),
-          ),
-          const Spacer(),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-            child: Text(
-              'Where do you want to go next?',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Tooltip(
-                  message: 'Go back downstairs',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
+              Padding(
+                padding: const EdgeInsets.only(
+                    bottom: 32.0), // Space from the bottom
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF461D7C),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    child: const Icon(
-                      Icons.arrow_downward,
-                      size: 32,
-                    ),
+                    elevation: 4,
+                  ),
+                  child: Text(
+                    'Return to Big Stairs',
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          fontSize: 16,
+                        ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: const Color(0xFF461D7C),

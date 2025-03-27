@@ -77,7 +77,6 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
             'Big Stairs',
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   color: Color(0xFF461D7C),
-                  fontWeight: FontWeight.bold,
                 ),
           ),
         ),
@@ -256,7 +255,7 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                         elevation: 4,
                       ),
                       child: const Icon(
-                        Icons.rotate_left,
+                        Icons.arrow_downward,
                         size: 32,
                       ),
                     ),
@@ -279,7 +278,7 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                         elevation: 4,
                       ),
                       child: const Icon(
-                        Icons.arrow_forward,
+                        Icons.arrow_upward,
                         size: 32,
                       ),
                     ),
@@ -302,7 +301,7 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                         elevation: 4,
                       ),
                       child: const Icon(
-                        Icons.help_outline,
+                        Icons.arrow_forward,
                         size: 32,
                       ),
                     ),
