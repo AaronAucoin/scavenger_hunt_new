@@ -87,13 +87,18 @@ class _QuestScreenState extends State<QuestScreen> {
             const Divider(color: Colors.white70),
             _buildQuestItem('Find the royal throne', _globalState.throne),
             const Divider(color: Colors.white70),
-            _buildQuestItem('Figure out the name of the donor on the Donor wall', _globalState.donor),
+            _buildQuestItem(
+                'Figure out the name of the donor on the Donor wall',
+                _globalState.donor),
             const Divider(color: Colors.white70),
-            _buildQuestItem('Figure out the sponser of the sustainable living lab', _globalState.basf),
+            _buildQuestItem(
+                'Figure out the sponser of the sustainable living lab',
+                _globalState.basf),
             const Divider(color: Colors.white70),
             _buildQuestItem('Find the flier on the wall', _globalState.flier),
             const Divider(color: Colors.white70),
-            _buildQuestItem('Something about big stairs', _globalState.stairs),
+            _buildQuestItem(
+                'Count the number of big stairs', _globalState.stairs),
             const Divider(color: Colors.white70),
             _buildQuestItem('Find the cool car', _globalState.car),
             const Divider(color: Colors.white70),

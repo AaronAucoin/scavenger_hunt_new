@@ -17,6 +17,9 @@ class BigStairsScreen extends StatefulWidget {
 class _BigStairsScreenState extends State<BigStairsScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
+  final TextEditingController _answerController = TextEditingController();
+  String? _feedbackText;
+  bool _isCorrect = false;
 
   void _onItemTapped(int index) {
     if (index == 1) {
@@ -36,6 +39,26 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
         _selectedIndex = index;
       });
     }
+  }
+
+  void _checkAnswer() {
+    setState(() {
+      if (_answerController.text.trim() == '11') {
+        _feedbackText =
+            'Correct! There are 11 stairs.\nThis task has been checked off your checklist.';
+        _isCorrect = true;
+        _globalState.stairs = true;
+      } else {
+        _feedbackText = 'Try again!';
+        _isCorrect = false;
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _answerController.dispose();
+    super.dispose();
   }
 
   @override
@@ -72,6 +95,7 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                 textAlign: TextAlign.center,
               ),
             ),
+            const SizedBox(height: 20),
 
             // This Expanded ensures the image is centered between the texts
             Expanded(
@@ -96,6 +120,76 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                 ],
               ),
             ),
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                'How many stairs are there?',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _answerController,
+                      style: const TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        hintText: 'Enter number',
+                        hintStyle:
+                            TextStyle(color: Colors.white.withOpacity(0.5)),
+                        filled: true,
+                        fillColor: Colors.white.withOpacity(0.1),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide.none,
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 12),
+                      ),
+                      onSubmitted: (_) => _checkAnswer(),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  ElevatedButton(
+                    onPressed: _checkAnswer,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Text('Submit'),
+                  ),
+                ],
+              ),
+            ),
+            if (_feedbackText != null)
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                child: Text(
+                  _feedbackText!,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: _isCorrect ? Colors.green : Colors.red,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            const SizedBox(height: 20),
 
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
@@ -144,7 +238,8 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const CenterOfEngineeringScreen()),
+                              builder: (context) =>
+                                  const CenterOfEngineeringScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
