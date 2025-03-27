@@ -73,25 +73,24 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           centerTitle: true,
-          title: const Text(
+          title: Text(
             'Big Stairs',
-            style: TextStyle(
-              color: Color(0xFF461D7C),
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: Color(0xFF461D7C),
+                  fontWeight: FontWeight.bold,
+                ),
           ),
         ),
         body: Column(
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
-              child: const Text(
+              child: Text(
                 'The Big Stairs are a great place to work on homework and hang out with friends!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -121,14 +120,14 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
               ),
             ),
 
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
                 'How many stairs are there?',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -141,11 +140,18 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                   Expanded(
                     child: TextField(
                       controller: _answerController,
-                      style: const TextStyle(color: Colors.white),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(color: Colors.white),
                       decoration: InputDecoration(
                         hintText: 'Enter number',
-                        hintStyle:
-                            TextStyle(color: Colors.white.withOpacity(0.5)),
+                        hintStyle: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(
+                                color: Colors.white.withOpacity(0.5),
+                                fontSize: 16),
                         filled: true,
                         fillColor: Colors.white.withOpacity(0.1),
                         border: OutlineInputBorder(
@@ -181,24 +187,24 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                     const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
                 child: Text(
                   _feedbackText!,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: _isCorrect ? Colors.green : Colors.red,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 16,
+                        color: _isCorrect ? Colors.green : Colors.red,
+                        fontWeight: FontWeight.w400,
+                      ),
                   textAlign: TextAlign.center,
                 ),
               ),
             const SizedBox(height: 20),
 
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
               child: Text(
                 'Where do you want to go next?',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
                 textAlign: TextAlign.center,
               ),
             ),

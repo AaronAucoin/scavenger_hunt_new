@@ -43,12 +43,11 @@ class _HuntScreenState extends State<HuntScreen> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           centerTitle: true,
-          title: const Text(
+          title: Text(
             'Panera',
-            style: TextStyle(
-              color: Color(0xFF461D7C),
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: Color(0xFF461D7C),
+                ),
           ),
         ),
         body: SafeArea(
@@ -60,25 +59,20 @@ class _HuntScreenState extends State<HuntScreen> {
                 padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 24.0),
                 child: Column(
                   children: [
-                    const Text(
+                    Text(
                       'Your first stop is Panera',
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        letterSpacing: 0.5,
-                      ),
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            color: Colors.white,
+                          ),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 12),
-                    const Text(
+                    Text(
                       'Complete your first task by ordering a bagel!',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                        letterSpacing: 0.3,
-                      ),
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -111,8 +105,7 @@ class _HuntScreenState extends State<HuntScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              const QuestCompletionScreen()),
+                          builder: (context) => const QuestCompletionScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -125,12 +118,11 @@ class _HuntScreenState extends State<HuntScreen> {
                     ),
                     elevation: 4,
                   ),
-                  child: const Text(
+                  child: Text(
                     'Order',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          fontSize: 20,
+                        ),
                   ),
                 ),
               ),

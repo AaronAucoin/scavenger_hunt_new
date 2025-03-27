@@ -53,12 +53,12 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Sponsor Question',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0xFF461D7C),
+                fontWeight: FontWeight.w400,
+              ),
         ),
       ),
       body: Padding(
@@ -67,12 +67,12 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
+            Text(
               'Which name can you find on the wall?',
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 24,
+                    color: Colors.white,
+                  ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 40),
@@ -86,48 +86,48 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
               _buildAnswerButton('3M'),
             ],
             if (_isCorrect) ...[
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Quest completed!',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+              const Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    'This task has been checked off your checklist!',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
                     ),
-                    const SizedBox(height: 20),
-                    Tooltip(
-                      message: 'Return to Game',
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const DonorWallScreen()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: const Color(0xFF461D7C),
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          elevation: 4,
-                        ),
-                        child: const Text(
-                          'Return to Game',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Tooltip(
+                message: 'Return to Game',
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DonorWallScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF461D7C),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                  ],
+                    elevation: 4,
+                  ),
+                  child: const Text(
+                    'Return to Game',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -174,10 +174,10 @@ class _SponsorQuestionScreenState extends State<SponsorQuestionScreen> {
         ),
         child: Text(
           answer,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontSize: 18,
+                color: Color(0xFF461D7C),
+              ),
         ),
       ),
     );

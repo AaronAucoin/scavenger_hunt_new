@@ -12,12 +12,12 @@ class PosterScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Poster',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0xFF461D7C),
+                fontWeight: FontWeight.w400,
+              ),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Color(0xFF461D7C)),
@@ -31,10 +31,10 @@ class PosterScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
               child: Text(
-                'You found the flier!',
+                'You found the flyer!',
                 style: TextStyle(
                   fontSize: 24,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w400,
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
@@ -62,7 +62,6 @@ class PosterScreen extends StatelessWidget {
                 'This task has been checked off your checklist.',
                 style: TextStyle(
                   fontSize: 18,
-                  fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
@@ -89,12 +88,13 @@ class PosterScreen extends StatelessWidget {
                   ),
                   elevation: 4,
                 ),
-                child: const Text(
+                child: Text(
                   'Return to Commons',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 16,
+                        color: Color(0xFF461D7C),
+                        fontWeight: FontWeight.w400,
+                      ),
                 ),
               ),
             ),

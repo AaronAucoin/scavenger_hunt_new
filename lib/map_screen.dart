@@ -78,7 +78,7 @@ class _MapScreenState extends State<MapScreen> {
             'Map',
             style: TextStyle(
               color: Color(0xFF461D7C),
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
             ),
           ),
           actions: [

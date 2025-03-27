@@ -11,12 +11,11 @@ class QuestCompletionScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Quest Completed!',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0xFF461D7C),
+              ),
         ),
       ),
       body: Center(
@@ -29,22 +28,24 @@ class QuestCompletionScreen extends StatelessWidget {
               color: Colors.white,
             ),
             const SizedBox(height: 24),
-            const Text(
+            Text(
               'Bagel Acquired!',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 32,
+                    color: Colors.white,
+                  ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Congratulations, you have completed your first task!',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Congratulations, you have completed your first task!',
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 32),
             Padding(
@@ -67,12 +68,12 @@ class QuestCompletionScreen extends StatelessWidget {
                   ),
                   elevation: 4,
                 ),
-                child: const Text(
+                child: Text(
                   'Begin Your Journey',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 20,
+                        color: Color(0xFF461D7C),
+                      ),
                 ),
               ),
             ),

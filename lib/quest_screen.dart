@@ -76,9 +76,10 @@ class _QuestScreenState extends State<QuestScreen> {
             const Text(
               'Your Quests',
               style: TextStyle(
+                fontFamily: 'ProximaNova',
                 color: Colors.white,
                 fontSize: 24,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w400,
               ),
               textAlign: TextAlign.center,
             ),
@@ -95,7 +96,7 @@ class _QuestScreenState extends State<QuestScreen> {
                 'Figure out the sponser of the sustainable living lab',
                 _globalState.basf),
             const Divider(color: Colors.white70),
-            _buildQuestItem('Find the flier on the wall', _globalState.flier),
+            _buildQuestItem('Find the flyer on the wall', _globalState.flier),
             const Divider(color: Colors.white70),
             _buildQuestItem(
                 'Count the number of big stairs', _globalState.stairs),
@@ -145,9 +146,11 @@ class _QuestScreenState extends State<QuestScreen> {
             child: Text(
               text,
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 18,
-                decoration: isCompleted ? TextDecoration.lineThrough : null,
+                color: Colors.white,
+                decoration: isCompleted
+                    ? TextDecoration.lineThrough
+                    : TextDecoration.none,
               ),
             ),
           ),

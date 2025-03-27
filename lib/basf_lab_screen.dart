@@ -66,25 +66,26 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Sustainable Living Lab',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0xFF461D7C),
+                fontWeight: FontWeight.bold,
+              ),
         ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
             child: Text(
               "You've found the Sustainable Living Lab!",
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -109,14 +110,15 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
             ),
           ),
           const Spacer(flex: 1),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
               'What is the sponsor company of this lab?',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -128,11 +130,16 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                 Expanded(
                   child: TextField(
                     controller: _answerController,
-                    style: const TextStyle(color: Colors.white),
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          color: Colors.white,
+                        ),
                     decoration: InputDecoration(
                       hintText: 'Enter company name',
                       hintStyle:
-                          TextStyle(color: Colors.white.withOpacity(0.5)),
+                          Theme.of(context).textTheme.titleLarge!.copyWith(
+                                color: Colors.white.withOpacity(0.5),
+                                fontSize: 16,
+                              ),
                       filled: true,
                       fillColor: Colors.white.withOpacity(0.1),
                       border: OutlineInputBorder(
@@ -172,21 +179,21 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                     _isCorrect
                         ? 'Correct! This is the BASF Lab.'
                         : 'Try again!',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: _isCorrect ? Colors.green : Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          fontSize: 16,
+                          color: _isCorrect ? Colors.green : Colors.red,
+                          fontWeight: FontWeight.w400,
+                        ),
                     textAlign: TextAlign.center,
                   ),
                   if (_isCorrect)
-                    const Text(
+                    Text(
                       'This task has been checked off your checklist',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontSize: 16,
+                            color: Colors.green,
+                            fontWeight: FontWeight.w400,
+                          ),
                       textAlign: TextAlign.center,
                     ),
                 ],
@@ -204,7 +211,8 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const DonorWallScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const DonorWallScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -226,7 +234,8 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const RightHallwayScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const RightHallwayScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

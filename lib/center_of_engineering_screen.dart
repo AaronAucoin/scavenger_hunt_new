@@ -45,27 +45,26 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Center of Engineering',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0xFF461D7C),
+                fontWeight: FontWeight.w400,
+              ),
         ),
       ),
       body: Column(
         children: [
           const SizedBox(height: 32),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
               'The Center of Engineering provides many resources to students at LSU',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
-                letterSpacing: 0.3,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 20,
+                    color: Colors.white,
+                    letterSpacing: 0.3,
+                  ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -87,6 +86,18 @@ class _CenterOfEngineeringScreenState extends State<CenterOfEngineeringScreen> {
                   );
                 },
               ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Text(
+              'What else can you find here?',
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 20,
+                    color: Colors.white,
+                    letterSpacing: 0.3,
+                  ),
+              textAlign: TextAlign.center,
             ),
           ),
           const Spacer(),

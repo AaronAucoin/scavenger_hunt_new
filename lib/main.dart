@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'hunt_screen.dart';
 
 void main() {
@@ -14,11 +13,52 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PFT Scavenger Hunt',
       theme: ThemeData(
+        fontFamily: 'ProximaNova', // Global font setting
+        textTheme: const TextTheme(
+          bodyLarge:
+              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+          bodyMedium:
+              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+          bodySmall:
+              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+          titleLarge:
+              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+          titleMedium:
+              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+          titleSmall:
+              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+        ),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'ProximaNova',
+            fontWeight: FontWeight.w400,
+            fontSize: 20,
+            color: Color(0xFF461D7C),
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            textStyle: const TextStyle(
+              fontFamily: 'ProximaNova',
+              fontWeight: FontWeight.w400,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          selectedLabelStyle: TextStyle(
+            fontFamily: 'ProximaNova',
+            fontWeight: FontWeight.w400,
+          ),
+          unselectedLabelStyle: TextStyle(
+            fontFamily: 'ProximaNova',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF461D7C), // LSU Purple
           secondary: const Color(0xFFFFB81C), // LSU Gold
         ),
-        textTheme: GoogleFonts.interTextTheme(),
         useMaterial3: true,
       ),
       home: const WelcomeScreen(),
@@ -41,15 +81,15 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               Text(
                 'PFT Scavenger Hunt',
-                style: GoogleFonts.orbitron(
+                style: const TextStyle(
                   fontSize: 36,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w400, // Changed to normal weight
                   color: Colors.white,
                   letterSpacing: 2.0,
                   shadows: [
                     Shadow(
-                      color: Colors.black.withOpacity(0.3),
-                      offset: const Offset(2, 2),
+                      color: Colors.black38,
+                      offset: Offset(2, 2),
                       blurRadius: 4,
                     ),
                   ],
@@ -69,7 +109,7 @@ class WelcomeScreen extends StatelessWidget {
                   width: 270,
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
-                    print('Error loading image: $error');
+                    print('Error loading image: \$error');
                     return const Center(
                       child: Text(
                         'Logo not found',
@@ -87,7 +127,8 @@ class WelcomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HuntScreen()),
+                        builder: (context) => const HuntScreen(),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -101,9 +142,9 @@ class WelcomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     elevation: 4,
-                    textStyle: GoogleFonts.inter(
+                    textStyle: const TextStyle(
                       fontSize: 22,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w400, // Changed to normal weight
                       letterSpacing: 0.5,
                     ),
                   ),

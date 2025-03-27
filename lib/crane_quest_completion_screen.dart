@@ -8,10 +8,12 @@ class CraneQuestCompletionScreen extends StatefulWidget {
   const CraneQuestCompletionScreen({super.key});
 
   @override
-  State<CraneQuestCompletionScreen> createState() => _CraneQuestCompletionScreenState();
+  State<CraneQuestCompletionScreen> createState() =>
+      _CraneQuestCompletionScreenState();
 }
 
-class _CraneQuestCompletionScreenState extends State<CraneQuestCompletionScreen> {
+class _CraneQuestCompletionScreenState
+    extends State<CraneQuestCompletionScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
@@ -46,25 +48,25 @@ class _CraneQuestCompletionScreenState extends State<CraneQuestCompletionScreen>
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
-          'Quest Completed',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
-          ),
+        title: Text(
+          'Quest Completed!',
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0xFF461D7C),
+                fontWeight: FontWeight.w400,
+              ),
         ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'Crane found',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-            textAlign: TextAlign.center,
+          const Spacer(),
+          Text(
+            'Crane Found!',
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  fontSize: 28,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                ),
           ),
           const SizedBox(height: 32),
           Expanded(
@@ -100,24 +102,27 @@ class _CraneQuestCompletionScreenState extends State<CraneQuestCompletionScreen>
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const CenterOfEngineeringScreen()),
+                          builder: (context) =>
+                              const CenterOfEngineeringScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: const Color(0xFF461D7C),
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                     elevation: 4,
                   ),
-                  child: const Text(
-                    'Return to Center of Engineering',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Text(
+                    'Continue Your Journey',
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          fontSize: 18,
+                          color: Color(0xFF461D7C),
+                          fontWeight: FontWeight.w400,
+                        ),
                   ),
                 ),
               ],
@@ -148,4 +153,4 @@ class _CraneQuestCompletionScreenState extends State<CraneQuestCompletionScreen>
       ),
     );
   }
-} 
+}

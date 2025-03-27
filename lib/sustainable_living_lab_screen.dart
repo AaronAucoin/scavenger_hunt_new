@@ -9,10 +9,12 @@ class SustainableLivingLabScreen extends StatefulWidget {
   const SustainableLivingLabScreen({super.key});
 
   @override
-  State<SustainableLivingLabScreen> createState() => _SustainableLivingLabScreenState();
+  State<SustainableLivingLabScreen> createState() =>
+      _SustainableLivingLabScreenState();
 }
 
-class _SustainableLivingLabScreenState extends State<SustainableLivingLabScreen> {
+class _SustainableLivingLabScreenState
+    extends State<SustainableLivingLabScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
@@ -51,7 +53,7 @@ class _SustainableLivingLabScreenState extends State<SustainableLivingLabScreen>
             'Sustainable Living Lab',
             style: TextStyle(
               color: Color(0xFF461D7C),
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ),
@@ -63,7 +65,7 @@ class _SustainableLivingLabScreenState extends State<SustainableLivingLabScreen>
                 'Sustainable Living Lab',
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w400,
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
@@ -137,4 +139,4 @@ class _SustainableLivingLabScreenState extends State<SustainableLivingLabScreen>
       ),
     );
   }
-} 
+}

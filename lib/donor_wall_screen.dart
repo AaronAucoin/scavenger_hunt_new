@@ -44,24 +44,25 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Donor Wall',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0xFF461D7C),
+                fontWeight: FontWeight.w400,
+              ),
         ),
       ),
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
             child: Text(
               "You've found the Donor Wall!",
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -100,7 +101,8 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const CenterOfEngineeringScreen()),
+                            builder: (context) =>
+                                const CenterOfEngineeringScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -123,7 +125,8 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SponsorQuestionScreen()),
+                            builder: (context) =>
+                                const SponsorQuestionScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

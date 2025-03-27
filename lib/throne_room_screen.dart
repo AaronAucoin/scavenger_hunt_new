@@ -51,7 +51,7 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
           'Glorious Throne Room',
           style: TextStyle(
             color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w400,
           ),
         ),
       ),
@@ -65,7 +65,7 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
                   'Quest completed!',
                   style: TextStyle(
                     fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
                     color: Colors.white,
                   ),
                   textAlign: TextAlign.center,
@@ -75,7 +75,7 @@ class _ThroneRoomScreenState extends State<ThroneRoomScreen> {
                   'This room has some of the most epic spinny chairs ever. These chairs can also be found all throughout PFT.',
                   style: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
                     color: Colors.white,
                   ),
                   textAlign: TextAlign.center,

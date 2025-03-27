@@ -43,12 +43,12 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Right Hallway',
-          style: TextStyle(
-            color: Color(0xFF461D7C),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Color(0xFF461D7C),
+                fontWeight: FontWeight.w400,
+              ),
         ),
       ),
       body: Column(
@@ -59,25 +59,24 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
             padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 24.0),
             child: Column(
               children: [
-                const Text(
+                Text(
                   'The Right Hallway',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    letterSpacing: 0.5,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                        letterSpacing: 0.5,
+                      ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 12),
-                const Text(
+                Text(
                   'Proceed down the hallway to discover what lies ahead...',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    letterSpacing: 0.3,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 20,
+                        color: Colors.white,
+                        letterSpacing: 0.3,
+                      ),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -105,16 +104,16 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
             child: Text(
               'Choose your direction',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
-                letterSpacing: 0.3,
-              ),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 20,
+                    color: Colors.white,
+                    letterSpacing: 0.3,
+                  ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -129,7 +128,8 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const CommonsScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const CommonsScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
