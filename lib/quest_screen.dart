@@ -10,6 +10,7 @@ import 'center_of_engineering_screen.dart';
 import 'throne_room_screen.dart';
 import 'donor_wall_screen.dart';
 import 'sponsor_question_screen.dart';
+import 'app_dude_room.dart';
 
 class QuestScreen extends StatefulWidget {
   const QuestScreen({super.key});
@@ -42,6 +43,8 @@ class _QuestScreenState extends State<QuestScreen> {
         return const DonorWallScreen();
       case 'SponsorQuestionScreen':
         return const SponsorQuestionScreen();
+      case 'AppDudeRoom':
+        return const AppDudeRoom();
       default:
         return const HuntScreen();
     }
@@ -104,6 +107,10 @@ class _QuestScreenState extends State<QuestScreen> {
             _buildQuestItem('Find the cool car', _globalState.car),
             const Divider(color: Colors.white70),
             _buildQuestItem('Find the SUPER BIG crane', _globalState.crane),
+            const Divider(color: Colors.white70),
+            _buildQuestItem(
+                'Find the room number in David Shepherd\'s classroom',
+                _globalState.appDudeRoom),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(

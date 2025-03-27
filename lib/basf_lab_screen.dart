@@ -70,7 +70,6 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
           'Sustainable Living Lab',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: Color(0xFF461D7C),
-                fontWeight: FontWeight.bold,
               ),
         ),
       ),
@@ -246,7 +245,7 @@ class _BasfLabScreenState extends State<BasfLabScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
-                      Icons.rotate_left,
+                      Icons.arrow_downward,
                       size: 32,
                     ),
                   ),

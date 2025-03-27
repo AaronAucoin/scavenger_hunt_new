@@ -152,6 +152,7 @@ class _CommonsScreenState extends State<CommonsScreen> {
                   message: 'Navigate to the stair way',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'BigStairsScreen';
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -175,6 +176,7 @@ class _CommonsScreenState extends State<CommonsScreen> {
                   message: 'Inspect',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'PosterScreen';
                       GlobalState().flier = true;
                       Navigator.push(
                         context,
@@ -199,6 +201,7 @@ class _CommonsScreenState extends State<CommonsScreen> {
                   message: 'Navigate to the right hallway',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'RightHallwayScreen';
                       Navigator.push(
                         context,
                         MaterialPageRoute(

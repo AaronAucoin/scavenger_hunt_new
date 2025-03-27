@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scavenger_hunt_new/app_dude_room.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'basf_lab_screen.dart';
@@ -126,6 +127,7 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
                   message: 'Back to Commons Area',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'CommonsScreen';
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -146,9 +148,10 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
                   ),
                 ),
                 Tooltip(
-                  message: 'Proceed to the BASF LAB',
+                  message: 'Proceed to basf lab',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'BASFLabScreen';
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -164,6 +167,30 @@ class _RightHallwayScreenState extends State<RightHallwayScreen> {
                     ),
                     child: const Icon(
                       Icons.arrow_upward,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Go to App Dude Room',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _globalState.lastGameScreen = 'AppDudeRoom';
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AppDudeRoom()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.arrow_forward,
                       size: 32,
                     ),
                   ),

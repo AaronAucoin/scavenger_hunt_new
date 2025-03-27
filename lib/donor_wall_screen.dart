@@ -25,7 +25,7 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
-      _globalState.lastGameScreen = 'EEEEEEEE';
+      _globalState.lastGameScreen = 'DonorWallScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -90,6 +90,18 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
           ),
           const Spacer(flex: 1),
           Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            child: Text(
+              "Now look at the wall closely...",
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -98,6 +110,7 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                   message: 'Go down the hallway past the donor wall',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'CenterOfEngineeringScreen';
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -122,6 +135,7 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                   message: 'Find the sponsor',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'SponsorQuestionScreen';
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -146,6 +160,7 @@ class _DonorWallScreenState extends State<DonorWallScreen> {
                   message: 'Turn around',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'BasfLabScreen';
                       Navigator.push(
                         context,
                         MaterialPageRoute(
