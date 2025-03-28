@@ -2,29 +2,30 @@ import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'globalboolean.dart';
-import 'big_stairs_screen.dart';
 import 'compLab.dart';
+import 'race_car_screen.dart';
+import 'awardCabinet.dart';
 
-class CompLabHallScreen extends StatefulWidget {
-  const CompLabHallScreen({super.key});
+class AwardsHallScreen extends StatefulWidget {
+  const AwardsHallScreen({super.key});
 
   @override
-  State<CompLabHallScreen> createState() => _CompLabHallScreenState();
+  State<AwardsHallScreen> createState() => _AwardsHallState();
 }
 
-class _CompLabHallScreenState extends State<CompLabHallScreen> {
+class _AwardsHallState extends State<AwardsHallScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
-      _globalState.lastGameScreen = 'CompLabHallScreen';
+      _globalState.lastGameScreen = 'AwardsHallScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
-      _globalState.lastGameScreen = 'CompLabHallScreen';
+      _globalState.lastGameScreen = 'AwardsHallScreen';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -44,7 +45,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          'Computer Lab Hall',
+          'Awards Hall',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: Color(0xFF461D7C),
                 fontWeight: FontWeight.w400,
@@ -56,7 +57,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
             child: Text(
-              'Welcome to the Computer Lab Hall',
+              'Welcome to the Awards Hall',
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontSize: 20,
                     color: Colors.white,
@@ -71,7 +72,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: Image.asset(
-                  'assets/complabhall.png',
+                  'assets/awardhall.png',
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
                     print('Error loading image: $error');
@@ -94,30 +95,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Tooltip(
-                  message: 'Return to Big Stairs',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BigStairsScreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_downward,
-                      size: 32,
-                    ),
-                  ),
-                ),
-                Tooltip(
-                  message: 'Proceed down the hallway',
+                  message: 'Return to Computer Lab',
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -134,7 +112,53 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
+                      Icons.arrow_downward,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'KEEP GOING!!!!',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RaceCarScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
                       Icons.arrow_upward,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'See awards',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AwardCabinetScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.arrow_right,
                       size: 32,
                     ),
                   ),

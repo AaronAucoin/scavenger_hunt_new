@@ -3,16 +3,17 @@ import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'globalboolean.dart';
 import 'big_stairs_screen.dart';
-import 'compLab.dart';
+import 'comp_lab_hall_screen.dart';
+import 'awardsHall.dart';
 
-class CompLabHallScreen extends StatefulWidget {
-  const CompLabHallScreen({super.key});
+class CompLabScreen extends StatefulWidget {
+  const CompLabScreen({super.key});
 
   @override
-  State<CompLabHallScreen> createState() => _CompLabHallScreenState();
+  State<CompLabScreen> createState() => _CompLabState();
 }
 
-class _CompLabHallScreenState extends State<CompLabHallScreen> {
+class _CompLabState extends State<CompLabScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
@@ -44,7 +45,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          'Computer Lab Hall',
+          'Computer Lab',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: Color(0xFF461D7C),
                 fontWeight: FontWeight.w400,
@@ -56,7 +57,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
             child: Text(
-              'Welcome to the Computer Lab Hall',
+              'Welcome to the Computer Lab',
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontSize: 20,
                     color: Colors.white,
@@ -71,7 +72,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: Image.asset(
-                  'assets/complabhall.png',
+                  'assets/CompLab.png',
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
                     print('Error loading image: $error');
@@ -94,13 +95,13 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Tooltip(
-                  message: 'Return to Big Stairs',
+                  message: 'Return to Hallway',
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BigStairsScreen()),
+                            builder: (context) => const CompLabHallScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -111,7 +112,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
-                      Icons.arrow_downward,
+                      Icons.arrow_left,
                       size: 32,
                     ),
                   ),
@@ -123,7 +124,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const CompLabScreen()),
+                            builder: (context) => const AwardsHallScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -134,7 +135,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
-                      Icons.arrow_upward,
+                      Icons.arrow_right,
                       size: 32,
                     ),
                   ),

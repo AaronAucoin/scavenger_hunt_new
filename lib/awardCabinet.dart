@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
+import 'sponsor_question_screen.dart';
+import 'center_of_engineering_screen.dart';
+import 'basf_lab_screen.dart';
 import 'globalboolean.dart';
-import 'big_stairs_screen.dart';
-import 'compLab.dart';
 
-class CompLabHallScreen extends StatefulWidget {
-  const CompLabHallScreen({super.key});
+class AwardCabinetScreen extends StatefulWidget {
+  const AwardCabinetScreen({super.key});
 
   @override
-  State<CompLabHallScreen> createState() => _CompLabHallScreenState();
+  State<AwardCabinetScreen> createState() => _DonorWallScreenState();
 }
 
-class _CompLabHallScreenState extends State<CompLabHallScreen> {
+class _DonorWallScreenState extends State<AwardCabinetScreen> {
   int _selectedIndex = 0;
   final GlobalState _globalState = GlobalState();
 
   void _onItemTapped(int index) {
     if (index == 1) {
-      _globalState.lastGameScreen = 'CompLabHallScreen';
+      _globalState.lastGameScreen = 'AwardCabinet';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MapScreen()),
       );
     } else if (index == 2) {
-      _globalState.lastGameScreen = 'CompLabHallScreen';
+      _globalState.lastGameScreen = 'AwardCabinet';
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const QuestScreen()),
@@ -44,7 +45,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
-          'Computer Lab Hall',
+          'Award Cabinet',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: Color(0xFF461D7C),
                 fontWeight: FontWeight.w400,
@@ -54,9 +55,10 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
             child: Text(
-              'Welcome to the Computer Lab Hall',
+              "You've found the Award Cabinet!",
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontSize: 20,
                     color: Colors.white,
@@ -71,59 +73,49 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: Image.asset(
-                  'assets/complabhall.png',
+                  'assets/AWARDS.png',
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
                     print('Error loading image: $error');
                     return const Center(
                       child: Text(
-                        'Image not found',
+                        'Logo not found',
                         style: TextStyle(color: Colors.white),
                       ),
                     );
                   },
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.5,
                 ),
               ),
+            ),
+          ),
+          const Spacer(flex: 1),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 25.0),
+            child: Text(
+              "Here are lots of awards...",
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+              textAlign: TextAlign.center,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Tooltip(
-                  message: 'Return to Big Stairs',
+                  message: 'Go down the hallway past the donor wall',
                   child: ElevatedButton(
                     onPressed: () {
+                      _globalState.lastGameScreen = 'CenterOfEngineeringScreen';
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BigStairsScreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_downward,
-                      size: 32,
-                    ),
-                  ),
-                ),
-                Tooltip(
-                  message: 'Proceed down the hallway',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CompLabScreen()),
+                            builder: (context) =>
+                                const CenterOfEngineeringScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -135,6 +127,55 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                     ),
                     child: const Icon(
                       Icons.arrow_upward,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Find the award',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _globalState.lastGameScreen = 'AwardQuestionScreen';
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const SponsorQuestionScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.search,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                Tooltip(
+                  message: 'Turn around',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _globalState.lastGameScreen = 'BasfLabScreen';
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BasfLabScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.rotate_left,
                       size: 32,
                     ),
                   ),
