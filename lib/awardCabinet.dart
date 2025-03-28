@@ -6,6 +6,7 @@ import 'center_of_engineering_screen.dart';
 import 'basf_lab_screen.dart';
 import 'globalboolean.dart';
 import 'award_question_screen.dart';
+import 'awardsHall.dart';
 
 class AwardCabinetScreen extends StatefulWidget {
   const AwardCabinetScreen({super.key});
@@ -161,10 +162,10 @@ class _DonorWallScreenState extends State<AwardCabinetScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       _globalState.lastGameScreen = 'BasfLabScreen';
-                      Navigator.push(
+                      Navigator.pop(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BasfLabScreen()),
+                            builder: (context) => const AwardsHallScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
