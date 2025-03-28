@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'quest_screen.dart';
 import 'globalboolean.dart';
-import 'big_stairs_screen.dart';
 import 'comp_lab_hall_screen.dart';
 import 'awardsHall.dart';
 

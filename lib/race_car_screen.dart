@@ -60,14 +60,14 @@ class _RaceCarScreenState extends State<RaceCarScreen> {
           ),
         ),
         body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     children: [
-                      const SizedBox(height: 16),
                       Text(
                         'You found the cool race car!',
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
@@ -101,37 +101,36 @@ class _RaceCarScreenState extends State<RaceCarScreen> {
                             ),
                         textAlign: TextAlign.center,
                       ),
-                      const Spacer(), // Push everything above upwards
                     ],
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    bottom: 32.0), // Space from the bottom
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: const Color(0xFF461D7C),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                const SizedBox(height: 32),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      elevation: 4,
                     ),
-                    elevation: 4,
-                  ),
-                  child: Text(
-                    'Return to Big Stairs',
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          fontSize: 16,
-                        ),
+                    child: Text(
+                      'Continue your quest, adventurer!',
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontSize: 16,
+                          ),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
