@@ -214,29 +214,29 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Tooltip(
-                    message: 'Check out the race car',
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const RaceCarScreen()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: const Color(0xFF461D7C),
-                        padding: const EdgeInsets.all(24),
-                        shape: const CircleBorder(),
-                        elevation: 4,
-                      ),
-                      child: const Icon(
-                        Icons.car_rental_outlined,
-                        size: 32,
-                      ),
-                    ),
-                  ),
+                  // Tooltip(
+                  //   message: 'Check out the race car',
+                  //   child: ElevatedButton(
+                  //     onPressed: () {
+                  //       Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(
+                  //             builder: (context) => const RaceCarScreen()),
+                  //       );
+                  //     },
+                  //     style: ElevatedButton.styleFrom(
+                  //       backgroundColor: Colors.white,
+                  //       foregroundColor: const Color(0xFF461D7C),
+                  //       padding: const EdgeInsets.all(24),
+                  //       shape: const CircleBorder(),
+                  //       elevation: 4,
+                  //     ),
+                  //     child: const Icon(
+                  //       Icons.car_rental_outlined,
+                  //       size: 32,
+                  //     ),
+                  //   ),
+                  // ),
                   Tooltip(
                     message: 'Turn around',
                     child: ElevatedButton(
