@@ -17,6 +17,7 @@ class GlobalState {
   bool stairs = false;
   bool bagel = false;
   bool appDudeRoom = false;
+  bool award = false;
   String lastGameScreen = 'HuntScreen'; // Default to HuntScreen
 
   factory GlobalState() {

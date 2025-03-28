@@ -5,6 +5,7 @@ import 'sponsor_question_screen.dart';
 import 'center_of_engineering_screen.dart';
 import 'basf_lab_screen.dart';
 import 'globalboolean.dart';
+import 'award_question_screen.dart';
 
 class AwardCabinetScreen extends StatefulWidget {
   const AwardCabinetScreen({super.key});
@@ -139,8 +140,7 @@ class _DonorWallScreenState extends State<AwardCabinetScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const SponsorQuestionScreen()),
+                            builder: (context) => const AwardQuestionScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

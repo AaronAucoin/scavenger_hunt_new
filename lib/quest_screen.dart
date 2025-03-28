@@ -111,6 +111,9 @@ class _QuestScreenState extends State<QuestScreen> {
             _buildQuestItem(
                 'Find the room number in David Shepherd\'s classroom',
                 _globalState.appDudeRoom),
+            const Divider(color: Colors.white70),
+            _buildQuestItem(
+                'Find the most recent award year', _globalState.award),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
