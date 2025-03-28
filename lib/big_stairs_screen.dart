@@ -6,6 +6,7 @@ import 'commons_screen.dart';
 import 'center_of_engineering_screen.dart';
 import 'race_car_screen.dart';
 import 'globalboolean.dart';
+import 'comp_lab_hall_screen.dart';
 
 class BigStairsScreen extends StatefulWidget {
   const BigStairsScreen({super.key});
@@ -279,6 +280,29 @@ class _BigStairsScreenState extends State<BigStairsScreen> {
                       ),
                       child: const Icon(
                         Icons.arrow_upward,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                  Tooltip(
+                    message: 'Go to the 2nd floor',
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CompLabHallScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF461D7C),
+                        padding: const EdgeInsets.all(24),
+                        shape: const CircleBorder(),
+                        elevation: 4,
+                      ),
+                      child: const Icon(
+                        Icons.stairs,
                         size: 32,
                       ),
                     ),
