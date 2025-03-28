@@ -71,7 +71,7 @@ class _CompLabState extends State<CompLabScreen> {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: Image.asset(
-                  'assets/compLab.png',
+                  'assets/Complab.png',
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) {
                     print('Error loading image: $error');

@@ -4,6 +4,9 @@ import 'quest_screen.dart';
 import 'globalboolean.dart';
 import 'big_stairs_screen.dart';
 import 'compLab.dart';
+import 'commons_screen.dart';
+import 'center_of_engineering_screen.dart';
+import 'right_hallway_screen.dart';
 
 class CompLabHallScreen extends StatefulWidget {
   const CompLabHallScreen({super.key});
@@ -116,8 +119,81 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 16),
                 Tooltip(
-                  message: 'Proceed down the hallway',
+                  message: 'Go to Commons Area',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CommonsScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.table_restaurant,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Tooltip(
+                  message: 'Go to Center of Engineering',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CenterOfEngineeringScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.engineering,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Tooltip(
+                  message: 'Go to Right Hallway',
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RightHallwayScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: const Color(0xFF461D7C),
+                      padding: const EdgeInsets.all(24),
+                      shape: const CircleBorder(),
+                      elevation: 4,
+                    ),
+                    child: const Icon(
+                      Icons.arrow_forward,
+                      size: 32,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Tooltip(
+                  message: 'Proceed to Computer Lab',
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -134,7 +210,7 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                       elevation: 4,
                     ),
                     child: const Icon(
-                      Icons.arrow_upward,
+                      Icons.computer,
                       size: 32,
                     ),
                   ),
