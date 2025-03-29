@@ -113,7 +113,8 @@ class _MapScreenState extends State<MapScreen> {
                       child: Center(
                         child: GestureDetector(
                           onDoubleTap: () {
-                            _transformationController.value = Matrix4.identity();
+                            _transformationController.value =
+                                Matrix4.identity();
                           },
                           child: Image.asset(
                             'assets/pftMap.png',
@@ -142,10 +143,11 @@ class _MapScreenState extends State<MapScreen> {
                       child: Center(
                         child: GestureDetector(
                           onDoubleTap: () {
-                            _transformationController.value = Matrix4.identity();
+                            _transformationController.value =
+                                Matrix4.identity();
                           },
                           child: Image.asset(
-                            'assets/pft2floor.png',  
+                            'assets/pft2floor.png',
                             fit: BoxFit.contain,
                             errorBuilder: (context, error, stackTrace) {
                               print('Error loading second map: $error');
@@ -180,7 +182,6 @@ class _MapScreenState extends State<MapScreen> {
                           '1st Floor',
                           style: TextStyle(
                             fontSize: 24,
-                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
@@ -191,7 +192,7 @@ class _MapScreenState extends State<MapScreen> {
                         'Right Hallway',
                         const RightHallwayScreen(),
                       ),
-                      const SizedBox(height: 12),                    
+                      const SizedBox(height: 12),
                       _buildNavButton(
                         context,
                         Icons.table_restaurant,
@@ -205,7 +206,7 @@ class _MapScreenState extends State<MapScreen> {
                         'Center of Engineering',
                         const CenterOfEngineeringScreen(),
                       ),
-                      const SizedBox(height: 12),                    
+                      const SizedBox(height: 12),
                       _buildNavButton(
                         context,
                         Icons.stairs,
@@ -241,11 +242,10 @@ class _MapScreenState extends State<MapScreen> {
                           '2nd Floor',
                           style: TextStyle(
                             fontSize: 24,
-                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
-                      ),                     
+                      ),
                       _buildNavButton(
                         context,
                         Icons.meeting_room,
