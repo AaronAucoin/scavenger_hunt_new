@@ -169,30 +169,6 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
                 ),
                 const SizedBox(width: 16),
                 Tooltip(
-                  message: 'Go to Right Hallway',
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RightHallwayScreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF461D7C),
-                      padding: const EdgeInsets.all(24),
-                      shape: const CircleBorder(),
-                      elevation: 4,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      size: 32,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Tooltip(
                   message: 'Proceed to Computer Lab',
                   child: ElevatedButton(
                     onPressed: () {
