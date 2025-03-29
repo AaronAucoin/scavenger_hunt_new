@@ -50,7 +50,6 @@ class _CompLabHallScreenState extends State<CompLabHallScreen> {
           'Computer Lab Hall',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: Color(0xFF461D7C),
-                fontWeight: FontWeight.w400,
               ),
         ),
       ),

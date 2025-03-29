@@ -13,24 +13,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PFT Scavenger Hunt',
       theme: ThemeData(
-        fontFamily: 'ProximaNova', // Global font setting
+        fontFamily: 'proximanova_regular', // Updated font name
         textTheme: const TextTheme(
           bodyLarge:
-              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+              TextStyle(fontFamily: 'proximanova_regular', fontWeight: FontWeight.w400),
           bodyMedium:
-              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+              TextStyle(fontFamily: 'proximanova_regular', fontWeight: FontWeight.w400),
           bodySmall:
-              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+              TextStyle(fontFamily: 'proximanova_regular', fontWeight: FontWeight.w400),
           titleLarge:
-              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+              TextStyle(fontFamily: 'proximanova_regular', fontWeight: FontWeight.w400),
           titleMedium:
-              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+              TextStyle(fontFamily: 'proximanova_regular', fontWeight: FontWeight.w400),
           titleSmall:
-              TextStyle(fontFamily: 'ProximaNova', fontWeight: FontWeight.w400),
+              TextStyle(fontFamily: 'proximanova_regular', fontWeight: FontWeight.w400),
         ),
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
-            fontFamily: 'ProximaNova',
+            fontFamily: 'proximanova_regular',
             fontWeight: FontWeight.w400,
             fontSize: 20,
             color: Color(0xFF461D7C),
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             textStyle: const TextStyle(
-              fontFamily: 'ProximaNova',
+              fontFamily: 'proximanova_regular',
               fontWeight: FontWeight.w400,
               fontSize: 20,
             ),
@@ -47,11 +47,11 @@ class MyApp extends StatelessWidget {
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           selectedLabelStyle: TextStyle(
-            fontFamily: 'ProximaNova',
+            fontFamily: 'proximanova_regular',
             fontWeight: FontWeight.w400,
           ),
           unselectedLabelStyle: TextStyle(
-            fontFamily: 'ProximaNova',
+            fontFamily: 'proximanova_regular',
             fontWeight: FontWeight.w400,
           ),
         ),
